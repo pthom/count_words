@@ -14,7 +14,8 @@ Comment
 Allez
 Vous
 )";
-        auto lines = splitLines(s);
+        StringUtilities aux(s);
+        auto lines = aux.splitLines();
         std::vector<std::string> expected =
         {
             "Bonjour",

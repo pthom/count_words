@@ -4,5 +4,12 @@
 using namespace std;
 namespace test
 {
-    vector<string> splitLines(const string s);
+    class StringUtilities
+    {
+    public:
+        StringUtilities(const std::string s) : s(s) {}
+        vector<string> splitLines();
+    private:
+        std::string s;
+    };
 }

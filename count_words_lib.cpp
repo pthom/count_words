@@ -9,11 +9,11 @@ namespace test
      *  @param toto: the string to split
      *  @return: a vector<string> with the lines that have been splitted :-)
      */
-    vector<string> splitLines(const string toto)
+    vector<string> StringUtilities::splitLines()
     {
-        if (toto.empty())
+        if (s.empty())
             throw std::runtime_error("Empty string !");
-        std::vector<string> r = fplus::split<string>('\n', true, toto);
+        std::vector<string> r = fplus::split<string>('\n', true, s);
         return r;
     }
 }
