@@ -4,6 +4,9 @@
 using namespace std;
 namespace test
 {
+    /**
+     * Class for handling all the string utilities. Only splitLines is avail at the moment.
+     */
     class StringUtilities
     {
     public:
