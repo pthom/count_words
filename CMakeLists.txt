@@ -1,27 +1,16 @@
 cmake_minimum_required (VERSION 3.2.0)
-set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_STANDARD 14)
 
-# Add hunter for easy dependency management
-include("cmake/HunterInit.cmake")
+project(test)
 
-project(lab)
-
-# Add boost
-hunter_add_package(Boost)
-find_package(Boost CONFIG REQUIRED)
-include_directories(${Boost_INCLUDE_DIRS})
-
-# Add doctest
-include_directories("thirdparty/doctest")
+# Add third parties (doctest and fplus)
+include_directories("external/doctest")
+include_directories("external/FunctionalPlus/include")
 
 # Add main target and test target
-add_executable(lab lab.cpp Readme.md)
-add_executable(lab_test lab.cpp)
-
-target_compile_definitions(lab_test PRIVATE "-DUNIT_TEST")
-target_compile_definitions(lab PRIVATE "-DDOCTEST_CONFIG_DISABLE")
+add_executable(count_words count_words.cpp)
+add_executable(count_words_test count_words_test.cpp)
 
 # Enable tests and register test with `make test`
 enable_testing()
-add_test(NAME lab_test COMMAND lab_test)
-
+add_test(NAME count_words_test COMMAND count_words_test)
