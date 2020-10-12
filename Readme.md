@@ -39,19 +39,22 @@ cat data/Othello.txt | ./count_words
 ## Questions
 
 ### Questions générales
-- Que pensez-vous du nom que j'ai donné ("count_words") 
-- Critiquer le code des différents fichiers. Corriger si nécessaire. Quid de l'ordre des includes ?
+* Que pensez-vous du nom que j'ai donné ("count_words") 
+* Critiquer le code des différents fichiers. Corriger si nécessaire. Quid de l'ordre des includes ?
 
-- Expliquer et critiquer l'archi du projet. 
-- Comment structureriez-vous un projet de grande envergure avec x lib de différents niveaux, des tests unitaires par lib, et des exe
+* Expliquer et critiquer l'archi du projet. 
+* Comment structureriez-vous un projet de grande envergure avec x lib de différents niveaux, des tests unitaires par lib, et des exe
   (structures des répertoires et des projets, nommages des projet et fichier, gestion des dépendances, etc.)
-- Quels outils mettriez vous en place ?
+* Quels outils mettriez vous en place ?
 
 > Vous aurez à disposition une librairie "fonctionnelle" permettant d'écrire en mode fonctionnel en C++: `FunctionalPlus`.
 > Sa documentation est disponible ici: http://www.editgym.com/fplus-api-search/
 > Note: C'est un des buts du tests de voir votre réaction face à un environnement nouveau.
 
-- Rechercher par exemple `(a,[a])->Bool` ou `([a],[b])->[(a,b)]` et expliquer les résultats trouvés
+* Rechercher par exemple les items ci-dessous et expliquer les résultats trouvés
+  *  `(a,[a])->Bool` 
+  * `([a],[b])->[(a,b)]`
+  * show 
 
 - Le test unitaire ne fonctionne pas. Le réparer.
   Pour ceci, on peut s'appuyer sur la doc de FunctionalPlus disponible ici: http://www.editgym.com/fplus-api-search/
