@@ -12,40 +12,60 @@ Sa réponse a été un programme de plusieurs milliers de lignes, probablement t
 
 Travailler sur un programme qui permette de faire ce qui est demandé, et qui soit - on l'espère ! - plus court que celui de Donal Knuth.
 
-## Indice
+Vous disposer d'un fichier [data/Othello.txt](data/Othello.txt).
+Sur ce fichier, un tel programme devra renvoyer quelque chose comme:
 
-Douglas McIlroy a de son côté répondu au challenge par un programme de 6 lignes en bash, 
-ultra-compréhensible et intuitif (pour peu qu'on connaisse un peu bash et unix) :
-
-````bash
-tr -cs A-Za-z '\n' |
-tr A-Z a-z |
-sort   |
-uniq -c |
-sort -rn |
-head -50
+````
+ 899 i
+ 793 and
+ 759 the
+ 625 to
+ 494 you
+ 472 of
+ 449 a
+ 427 my
+ 396 that
+ 359 iago
+ 339 in
+ 332 othello
 ````
 
 Essayez-le:
 
 ````
-cat data/Othello.txt | ./count_words.sh
+cat data/Othello.txt | ./count_words
 ````
-
-
-Pour en savoir plus sur ce sujet : https://franklinchen.com/blog/2011/12/08/revisiting-knuth-and-mcilroys-word-count-programs/
 
 ## Questions
 
-- Expliquer le fonctionnement du programme shell ci-dessus.
+### Questions générales
+- Que pensez-vous du nom que j'ai donné ("count_words") 
+- Critiquer le code des différents fichiers. Corriger si nécessaire. Quid de l'ordre des includes ?
+
+- Expliquer et critiquer l'archi du projet. 
+- Comment structureriez-vous un projet de grande envergure avec x lib de différents niveaux, des tests unitaires par lib, et des exe
+  (structures des répertoires et des projets, nommages des projet et fichier, gestion des dépendances, etc.)
+- Quels outils mettriez vous en place ?
+
+> Vous aurez à disposition une librairie "fonctionnelle" permettant d'écrire en mode fonctionnel en C++: `FunctionalPlus`.
+> Sa documentation est disponible ici: http://www.editgym.com/fplus-api-search/
+> Note: C'est un des buts du tests de voir votre réaction face à un environnement nouveau.
+
+- Rechercher par exemple `(a,[a])->Bool` ou `([a],[b])->[(a,b)]` et expliquer les résultats trouvés
+
+- Le test unitaire ne fonctionne pas. Le réparer.
+  Pour ceci, on peut s'appuyer sur la doc de FunctionalPlus disponible ici: http://www.editgym.com/fplus-api-search/
+
+- On aura besoin d'une fonction qui sache lire un fichier texte et retourne son contenu. 
+  Proposer différentes signatures pour cette fonction (au moins 5), et expliquer leurs avantages / inconvénients.
+
+
+### Codage
+- Expliquer ligne à ligne le fonctionnement du programme shell
 - Essayer de reproduire tout ou partie en C++. On s'appuiera sur [FunctionalPlus](https://github.com/Dobiasd/FunctionalPlus/) 
 pour gagner du temps.
-- Faire un programme "à la unix", c'est à dire qui sache lire ses données sur stdin
-et écrire son résultat sur stdout.
+- Faire un programme "à la unix", c'est à dire qui sache lire ses données sur stdin et écrire son résultat sur stdout.
+- l'utilisation de boucles `for()` est *découragée* dans ce test, et ce sera un avantage. Pourquoi ?
 
-#### Difficultés supplémentaire et contexte:
-* l'utilisation de boucles `for()` est *découragée* dans ce test
-* vous pourrez écrire des test unitaires (voir le fichier _count_words_test.cpp)
-* vous avez à disposition une librairie "fonctionnelle" permettant d'écrire en mode fonctionnel en C++: `FunctionalPlus`.
+Vous pourrez écrire des test unitaires (voir le fichier count_words_test.cpp).
     
-> Note: C'est un des buts du tests de voir votre réaction face à un environnement nouveau.
